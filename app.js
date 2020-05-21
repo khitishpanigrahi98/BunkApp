@@ -5,7 +5,7 @@ const Student = require('./StudentDatabase.js')
 const Subject = require('./Subjects.js')
 const auth = require('./auth')
 const hbs = require('hbs')
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 const publicDirectoryPath =__dirname;
 app.use(express.json()) //JSON to object Automatic conversion
 const viewsPath = path.join(__dirname, './views')

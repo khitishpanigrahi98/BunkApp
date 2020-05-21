@@ -1,11 +1,10 @@
 {
-  "name": "Chart",
+  "name": "chart",
   "version": "1.0.0",
-  "description": "",
   "main": "mychart.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./app.js",
+    "dev": "env-cmd -f ./config/dev.env  nodemon ./app.js",
     "start": "node ./app.js"
   },
   "keywords": [],
@@ -20,5 +19,17 @@
     "mongoose": "^5.9.14",
     "nodemon": "^2.0.3",
     "validator": "^13.0.0"
-  }
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babayaga9823/BunkApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/babayaga9823/BunkApp/issues"
+  },
+  "homepage": "https://github.com/babayaga9823/BunkApp#readme",
+  "description": ""
 }

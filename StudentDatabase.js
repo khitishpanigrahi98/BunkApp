@@ -3,7 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-mongoose.connect('mongodb://127.0.0.1:27017/StudentDatabase', {
+mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true
 })
@@ -102,7 +102,7 @@ StudentsSchema.virtual('StudtoSub', { //here we can give any name , it would be 
 
 //here we are creating tokens for verifying logged in user
 StudentsSchema.methods.generateAuthToken = async function () {
-    const token = jwt.sign({ _id: this._id.toString() }, 'deadpool')
+    const token = jwt.sign({ _id: this._id.toString() },  process.env.JWT_SECRET)
     this.tokens = this.tokens.concat({ token })
     await this.save()
     return token;

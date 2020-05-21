@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
         console.log(req.query.authorize)
         console.log("Testing")
         const token=req.query.authorize;
-        const decoded = jwt.verify(token, 'deadpool')
+        const decoded = jwt.verify(token, process.env.JWT_SECRET )
         const student = await Student.findOne({ _id: decoded._id, 'tokens.token': token })
         if (!student) {
             throw new Error()
