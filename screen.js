@@ -1,10 +1,10 @@
 
 let key;
 const { authorize } = Qs.parse(location.search, { ignoreQueryPrefix: true })
-console.log(authorize);
+// console.log(authorize);
 key=authorize;
-console.log("Starting key")
-console.log(key)
+// console.log("Starting key")
+//  console.log(key)
 const subjectlength = document.querySelectorAll('input[name="subject"]');
 if(subjectlength===undefined||subjectlength.length===0)
 {
@@ -18,11 +18,11 @@ else{
 document.querySelector("#misseddates").addEventListener('click',(event)=>{
     
     event.preventDefault();
-    console.log("Fetching Subjects");
-    console.log(location);
-    console.log(location.search);
+    // console.log("Fetching Subjects");
+    // console.log(location);
+    // console.log(location.search);
     const { authorize } = Qs.parse(location.search, { ignoreQueryPrefix: true })
-    console.log(authorize);
+    // console.log(authorize);
     key=authorize;
     const rbs = document.querySelectorAll('input[name="subject"]');
     let selectedsubject;
@@ -32,16 +32,16 @@ document.querySelector("#misseddates").addEventListener('click',(event)=>{
             break;
         }
     }
-    console.log(selectedsubject);
+    // console.log(selectedsubject);
     
-    console.log(`#${selectedsubject}present`);
+    // console.log(`#${selectedsubject}present`);
     var allsub; // to get all subjects
     fetch(`/findsubject?authorize=${authorize}`,).then(async (val)=>{
-       console.log("Found Subject");
+      //  console.log("Found Subject");
     //    console.log(val.json());
        allsub=await val.json();
-       console.log(allsub);
-       console.log(allsub[0].name);
+      //  console.log(allsub);
+      //  console.log(allsub[0].name);
        var requiredentries=[];
        let totalbunk=0,totalpresent=0;
        allsub.forEach(element => {
@@ -94,16 +94,16 @@ document.querySelector("#misseddates").addEventListener('click',(event)=>{
                     const  askabsent=totalbunk;
                     
                     if(document.querySelector('.warnheading')) document.querySelector('.warnheading').innerHTML = '';
-                    console.log(askabsent);
-                    console.log(asktotal);
-                    console.log("Hi "+askabsent);
-                    console.log("Hiiii "+asktotal);
+                    // console.log(askabsent);
+                    // console.log(asktotal);
+                    // console.log("Hi "+askabsent);
+                    // console.log("Hiiii "+asktotal);
 
-                    console.log(asktotal+askabsent);
+                    // console.log(asktotal+askabsent);
                     let presntdata=[];
                     presntdata.push(askabsent);
                     presntdata.push(asktotal);
-                    console.log(presntdata);
+                    // console.log(presntdata);
                     const ctx = document.getElementById('myChart').getContext('2d');
                     data = {
                     datasets: [{
@@ -129,7 +129,7 @@ document.querySelector("#misseddates").addEventListener('click',(event)=>{
                     prest=prest*10000;
                     prest= Math.round(prest) ;
                     prest=prest/100;
-                    console.log(prest);
+                    // console.log(prest);
                     if(prest>=75)
                     {   let enterhtml=` <div class="secondclass" style="color:green">
                                                             <pr>Safe!! Current Attendence = ${prest}%</pr>   
@@ -180,11 +180,11 @@ document.querySelector("#datesubmit").addEventListener('click',(event)=>{
     let addsubject=document.getElementById("addsubjectname").value;
     let addtotalpresent=document.getElementById("addtotalpresent").value;
     addtotalpresent=parseInt(addtotalpresent);
-    console.log("date "+adddate);
-    console.log(adddate.length);
-    console.log(typeof(adddate));
-    console.log("Sub "+addsubject);
-    console.log("Total "+addtotalpresent);
+    // console.log("date "+adddate);
+    // console.log(adddate.length);
+    // console.log(typeof(adddate));
+    // console.log("Sub "+addsubject);
+    // console.log("Total "+addtotalpresent);
     if(adddate.length===0)console.log("Date Not given");
     if(addsubject==="Subject")console.log("Subject Not given");
    
@@ -207,7 +207,7 @@ document.querySelector("#datesubmit").addEventListener('click',(event)=>{
             "totpresent" : addtotalpresent
         })
         .then(data => {
-          console.log(data); // JSON data parsed by `response.json()` call
+          // console.log(data); // JSON data parsed by `response.json()` call
           
           document.querySelector(".addsubject").insertAdjacentHTML('beforeend',nowsub);
           document.getElementById("datesubbunk").value='';

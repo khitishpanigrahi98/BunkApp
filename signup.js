@@ -4,9 +4,9 @@ document.querySelector(".loginbutton").addEventListener('click',(event)=>{
     email=document.querySelector(".email").value;
     password=document.querySelector(".password").value;
     name=document.querySelector(".name").value;
-    console.log("Hi "+email);
-    console.log("Hiiiii "+password);
-    console.log("Hiellll "+name);
+    // console.log("Hi "+email);
+    // console.log("Hiiiii "+password);
+    // console.log("Hiellll "+name);
 
 
 // Example POST method implementation:

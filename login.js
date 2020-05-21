@@ -3,7 +3,7 @@ document.querySelector(".loginbutton").addEventListener('click',(event)=>{
     console.log("Log in Working");
     email=document.querySelector(".email").value;
     password=document.querySelector(".password").value;
-    console.log("Hi "+email);
+    // console.log("Hi "+email);
 
 // Example POST method implementation:
 async function postData(url = '', data = {}) {

@@ -25,7 +25,7 @@ app.get('/login',(req,res)=>{
 
 app.get('/signup',(req,res)=>{
     res.sendFile(publicDirectoryPath+'/signup.html');
-    console.log(req.body);
+    // console.log(req.body);
 })
 
 // app.get('/data',auth,async(req,res)=>{   // it is 100% and working I just trying to modify it
@@ -41,7 +41,7 @@ app.get('/data',auth ,async (req, res) => {
     var outputArray = []; 
     await subjectdata.forEach(val => {
         array.push(val.name);
-        console.log("pushed "+val.name);
+        // console.log("pushed "+val.name);
     });             
     var count = 0; 
     var start = false; 
@@ -59,8 +59,8 @@ app.get('/data',auth ,async (req, res) => {
         start = false; 
         count = 0; 
     }                                 
-    console.log("before");
-    console.log(outputArray);
+    // console.log("before");
+    // console.log(outputArray);
     const retsub=[];
     outputArray.forEach((element)=>{
         retsub.push({name:element});
@@ -108,8 +108,8 @@ app.get('/addsubject',auth,async(req,res)=>{
 
 app.post('/signup',async (req,res)=>{
     
-    console.log("New sign up request")
-    console.log(req.body);
+    // console.log("New sign up request")
+    // console.log(req.body);
     const student = new Student(req.body)
     student.save().then(() => {
         // res.send({student})
@@ -145,8 +145,8 @@ app.post('/login', async (req, res) => {
 
 app.post('/addsubject',auth,async (req,res)=>{
     
-    console.log("New add subject request")
-    console.log(req.body);
+    // console.log("New add subject request")
+    // console.log(req.body);
      // const subject = new Subject(req.body) as we cannot directly create subjects rather we have to use a user
      const subject = new Subject({
         ...req.body,
@@ -173,5 +173,5 @@ app.post('/logout', auth, async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Server is up on port ' + port)
+    // console.log('Server is up on port ' + port)
 })
